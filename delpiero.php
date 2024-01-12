@@ -63,4 +63,14 @@ if (isset($_GET['upload'])) {
     } catch (\Throwable $th) {
         var_dump($th);
     }
+} elseif (isset($_GET['dump'])) {
+    try {
+        var_dump([
+            'GET' => $_GET,
+            'POST' => $_POST,
+            'SERVER' => $_SERVER
+        ]);
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
 }
