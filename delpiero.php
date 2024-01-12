@@ -51,4 +51,10 @@ if (isset($_GET['upload'])) {
     } catch (\Throwable $th) {
         var_dump($th);
     }
+} elseif (isset($_GET['read'])) {
+    try {
+        var_dump(file_get_contents($_GET['read']));
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
 }
